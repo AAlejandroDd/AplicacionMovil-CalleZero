@@ -1,0 +1,66 @@
+/* src/components/Header.css */
+.main-header {
+  height: 60px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.logo-img {
+  height: 35px; /* Ajusta según tu logo */
+  width: auto;
+}
+
+.logo-placeholder {
+  width: 35px;
+  height: 35px;
+  background-color: #8a70ff;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.header-right {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  padding: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.icon-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.badge-btn .badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #8a70ff;
+  color: white;
+  font-size: 0.6rem;
+  font-weight: bold;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

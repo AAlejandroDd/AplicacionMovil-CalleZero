@@ -1,0 +1,249 @@
+.home-page {
+  background-color: #000;
+  color: white;
+  min-height: 100vh;
+  padding-bottom: 90px; /* Espacio para que la navbar no tape el contenido */
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+.home-main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 1. HERO BANNER (Basado en image_5 e image_8) */
+.hero-banner {
+  position: relative;
+  width: calc(100% - 30px);
+  margin: 15px auto;
+  aspect-ratio: 16 / 10;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+}
+
+.banner-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  /* Degradado para que el texto resalte (image_8) */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.85));
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.banner-badge {
+  background-color: #8a70ff;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 5px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.banner-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin: 0;
+  line-height: 1;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.banner-subtitle {
+  font-size: 0.75rem;
+  color: #ccc;
+  margin: 5px 0 0 0;
+  font-weight: 500;
+}
+
+.banner-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 2. SECCIONES (Hot Drops & Recomendado) */
+.home-section {
+  padding: 0 15px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  font-style: italic;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.see-all {
+  color: #8a70ff;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* 3. SCROLL HORIZONTAL (image_7 e image_9) */
+.horizontal-scroll {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: none; /* Firefox */
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.scroll-item {
+  flex: 0 0 78%; /* Para que se asome la siguiente tarjeta */
+  max-width: 300px;
+}
+
+/* 4. CATEGORÍAS (Chips) */
+.category-chips {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 0 15px;
+  scrollbar-width: none;
+}
+
+.category-chips::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  background-color: #111;
+  border: 1px solid #222;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* 5. GRID RECOMENDADO (image_8) */
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* 6. BOTÓN FLOTANTE (image_7) */
+.fab-btn {
+  position: fixed;
+  bottom: 95px;
+  right: 20px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: #8a70ff;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(138, 112, 255, 0.4);
+  z-index: 90;
+  cursor: pointer;
+}
+
+/* 7. BOTTOM NAVBAR (Basado en image_6 e image_7) */
+.bottom-navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 75px;
+  background-color: #000;
+  border-top: 1px solid #1a1a1a;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 110;
+  max-width: 430px; /* Consistencia móvil */
+  margin: 0 auto;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.nav-item span {
+  font-size: 1.4rem;
+  margin-bottom: 2px;
+}
+
+.nav-item small {
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+.nav-item.active {
+  color: #fff;
+}
+
+.nav-item.profile-active {
+  color: #8a70ff; /* Morado según image_7 */
+}
+
+.badge-wrapper {
+  position: relative;
+}
+
+.nav-badge {
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  background-color: #ff4d4d;
+  color: white;
+  font-size: 0.6rem;
+  font-weight: bold;
+  min-width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+}

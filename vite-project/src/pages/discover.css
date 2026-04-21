@@ -1,0 +1,26 @@
+.trending-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 10px;
+}
+
+.trending-item {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  aspect-ratio: 1/0.8;
+  background: #1a1a1a; /* Placeholder */
+}
+
+.trend-info {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.trend-info h4 {
+  font-size: 0.8rem;
+  font-weight: 800;
+  font-style: italic;
+}

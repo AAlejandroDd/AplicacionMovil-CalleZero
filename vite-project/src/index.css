@@ -1,3 +1,21 @@
+/* src/index.css */
+body {
+  margin: 0;
+  background-color: #121212; /* Fondo oscuro para que no se vea blanco a los lados */
+  display: flex;
+  justify-content: center;
+}
+
+#root {
+  width: 100%;
+  max-width: 430px; /* Ancho máximo de un iPhone 15 Pro Max */
+  min-height: 100vh;
+  background-color: #000;
+  position: relative;
+  overflow-x: hidden;
+}
+
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
