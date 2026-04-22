@@ -1,26 +1,194 @@
-.trending-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  padding: 10px;
+/* src/pages/Discover.css */
+
+.discover-screen {
+  background-color: #000;
+  color: white;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif; /* Asegúrate de tener la fuente */
 }
 
-.trending-item {
-  position: relative;
-  border-radius: 15px;
-  overflow: hidden;
-  aspect-ratio: 1/0.8;
-  background: #1a1a1a; /* Placeholder */
+/* 1. HEADER (image_10.png) */
+.discover-header {
+  height: 60px;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1a1a1a;
+  position: sticky;
+  top: 0;
+  background-color: #000;
+  z-index: 10;
 }
 
-.trend-info {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
+.discover-header h2 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 1px;
 }
 
-.trend-info h4 {
+.back-btn, .filter-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* 2. BARRA DE BÚSQUEDA */
+.search-bar-container {
+  padding: 15px;
+}
+
+.search-bar-wrapper {
+  background-color: #1a1a1a;
+  height: 45px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 10px;
+}
+
+.search-icon {
+  font-size: 1rem;
+  color: #666;
+}
+
+.search-bar-wrapper input {
+  background: none;
+  border: none;
+  color: white;
+  flex: 1;
+  font-size: 0.9rem;
+}
+
+.search-bar-wrapper input::placeholder {
+  color: #666;
+}
+
+/* 3. SECCIONES GENERALES */
+.discover-section {
+  padding: 15px;
+}
+
+.discover-section h3 {
   font-size: 0.8rem;
   font-weight: 800;
-  font-style: italic;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 15px 0;
+}
+
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.section-header-row h3 {
+  margin: 0;
+}
+
+.clear-all-btn, .see-all-link {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 0.75rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 4. CHIPS DE BÚSQUEDA */
+.chips-container {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto; /* Scroll por si acaso */
+}
+
+.search-chip {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.close-chip {
+  color: #666;
+  font-size: 1rem;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+/* 5. TRENDING NOW GRID (image_10.png) - IMPORTANTE */
+.trending-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas exactas */
+  grid-template-rows: repeat(2, 1fr);    /* 2 filas exactas */
+  gap: 12px; /* Espacio entre tarjetas */
+}
+
+.trend-card {
+  position: relative;
+  background-color: #111; /* Fallback si no hay imagen */
+  border-radius: 15px;
+  overflow: hidden;
+  aspect-ratio: 1 / 0.8; /* Proporción para el grid */
+}
+
+.trend-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trend-text-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.trend-count {
+  color: #8a70ff; /* Morado para el contador */
+  font-size: 0.65rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.trend-title {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 800;
+  font-style: italic; /* Como en image_10.png */
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.trend-arrow {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+/* 6. STAFF PICK SECTION (Reutilizando Grid del Home) */
+.staff-pick-section {
+  padding-bottom: 30px; /* Espacio extra abajo */
 }

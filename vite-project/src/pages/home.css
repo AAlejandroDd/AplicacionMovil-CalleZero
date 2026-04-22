@@ -1,24 +1,24 @@
+/* src/pages/home.css */
+
 .home-page {
   background-color: #000;
   color: white;
   min-height: 100vh;
-  padding-bottom: 90px; /* Espacio para que la navbar no tape el contenido */
+  padding-bottom: 90px; /* Espacio para que el contenido no quede detrás de la navbar */
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
 }
 
 .home-main-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px; /* Espaciado entre secciones */
 }
 
-/* 1. HERO BANNER (Basado en image_5 e image_8) */
+/* 1. BANNER PRINCIPAL */
 .hero-banner {
   position: relative;
-  width: calc(100% - 30px);
-  margin: 15px auto;
-  aspect-ratio: 16 / 10;
+  margin: 15px;
+  height: 220px;
   border-radius: 20px;
   overflow: hidden;
   background-color: #1a1a1a;
@@ -33,8 +33,8 @@
 .banner-overlay {
   position: absolute;
   inset: 0;
-  /* Degradado para que el texto resalte (image_8) */
-  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.85));
+  /* Degradado para que el texto blanco se lea bien */
+  background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.85));
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -47,27 +47,25 @@
   color: white;
   font-size: 0.65rem;
   font-weight: 800;
-  padding: 5px 10px;
+  padding: 4px 10px;
   border-radius: 6px;
   text-transform: uppercase;
   margin-bottom: 8px;
 }
 
 .banner-title {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 900;
   margin: 0;
-  line-height: 1;
   font-style: italic;
   text-transform: uppercase;
-  letter-spacing: -1px;
+  line-height: 1;
 }
 
 .banner-subtitle {
   font-size: 0.75rem;
   color: #ccc;
-  margin: 5px 0 0 0;
-  font-weight: 500;
+  margin-top: 5px;
 }
 
 .banner-btn {
@@ -79,13 +77,13 @@
   border: 1px solid rgba(255,255,255,0.3);
   color: white;
   padding: 8px 18px;
-  border-radius: 25px;
+  border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
 }
 
-/* 2. SECCIONES (Hot Drops & Recomendado) */
+/* 2. CONFIGURACIÓN DE SECCIONES */
 .home-section {
   padding: 0 15px;
 }
@@ -102,102 +100,58 @@
   font-weight: 800;
   font-style: italic;
   margin: 0;
-  text-transform: uppercase;
 }
 
-.see-all {
+.see-all-btn {
+  background: none;
+  border: none;
   color: #8a70ff;
-  text-decoration: none;
-  font-size: 0.8rem;
   font-weight: 600;
+  font-size: 0.8rem;
+  cursor: pointer;
 }
 
-/* 3. SCROLL HORIZONTAL (image_7 e image_9) */
-.horizontal-scroll {
+/* 3. SCROLL HORIZONTAL (Hot Drops) */
+.home-horizontal-scroll {
   display: flex;
   gap: 15px;
   overflow-x: auto;
   padding-bottom: 10px;
   scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scrolling: touch;
 }
 
-.horizontal-scroll::-webkit-scrollbar {
+.home-horizontal-scroll::-webkit-scrollbar {
   display: none; /* Chrome/Safari */
 }
 
-.scroll-item {
-  flex: 0 0 78%; /* Para que se asome la siguiente tarjeta */
+.scroll-item-wrapper {
+  flex: 0 0 75%; /* Cada tarjeta ocupa el 75% para que se vea la siguiente */
   max-width: 300px;
 }
 
-/* 4. CATEGORÍAS (Chips) */
-.category-chips {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding: 0 15px;
-  scrollbar-width: none;
-}
-
-.category-chips::-webkit-scrollbar {
-  display: none;
-}
-
-.chip {
-  background-color: #111;
-  border: 1px solid #222;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 12px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-/* 5. GRID RECOMENDADO (image_8) */
-.products-grid {
+/* 4. GRID DE RECOMENDADOS */
+.home-products-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
-  margin-top: 10px;
 }
 
-/* 6. BOTÓN FLOTANTE (image_7) */
-.fab-btn {
-  position: fixed;
-  bottom: 95px;
-  right: 20px;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  background-color: #8a70ff;
-  color: white;
-  border: none;
-  font-size: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(138, 112, 255, 0.4);
-  z-index: 90;
-  cursor: pointer;
-}
-
-/* 7. BOTTOM NAVBAR (Basado en image_6 e image_7) */
+/* 5. NAVBAR INFERIOR (Fija) */
 .bottom-navbar {
   position: fixed;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px; /* Ajuste al ancho móvil del proyecto */
   height: 75px;
   background-color: #000;
   border-top: 1px solid #1a1a1a;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  z-index: 110;
-  max-width: 430px; /* Consistencia móvil */
-  margin: 0 auto;
+  z-index: 1000;
 }
 
 .nav-item {
@@ -209,7 +163,7 @@
   transition: color 0.3s;
 }
 
-.nav-item span {
+.nav-icon {
   font-size: 1.4rem;
   margin-bottom: 2px;
 }
@@ -224,7 +178,7 @@
 }
 
 .nav-item.profile-active {
-  color: #8a70ff; /* Morado según image_7 */
+  color: #8a70ff;
 }
 
 .badge-wrapper {
@@ -245,5 +199,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2px;
+}
+
+/* 6. BOTÓN FLOTANTE (+) */
+.fab-btn {
+  position: fixed;
+  bottom: 95px;
+  right: 20px;
+  width: 55px;
+  height: 55px;
+  background-color: #8a70ff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 2rem;
+  box-shadow: 0 4px 15px rgba(138, 112, 255, 0.4);
+  z-index: 99;
+  cursor: pointer;
 }

@@ -1,101 +1,112 @@
-// src/pages/Home.jsx
 import React from 'react';
-import Header from '../components/Header';
-import ProductCard from '../components/ProductCard';
-import './Home.css';
+import Header from '../components/header';
+import ProductCard from '../components/productCard';
+import './home.css';
 
-// IMPORTANTE: Importa tus imágenes aquí para usarlas abajo
- import bannerImg from '../assets/HomePrincipal.webp';
-// import hoodieImg from '../assets/hoodie.jpg';
+import heroImg from '../assets/HomePrincipal.webp'; 
 
-const Home = () => {
-  // Datos de ejemplo para los productos (luego vendrán de una API)
+// AGREGAMOS onExplore aquí arriba para recibir la función
+const Home = ({ onSearch, onExplore }) => {
+  
   const hotDrops = [
-    { id: 1, image: '', brand: 'CALLE ORIGINALS', name: 'Oversized "ZERO" Hoodie', price: 85.00, badge: 'NUEVO' },
-    { id: 2, image: '', brand: 'VOID SECTOR', name: 'Nightshade Cargo V1', price: 120.00, badge: '20% DESCUENTO' },
+    { 
+      id: 1, 
+      image: '', 
+      brand: 'CALLE ORIGINALS', 
+      name: 'Oversized "ZERO" Hoodie', 
+      price: 85.00, 
+      badge: 'NUEVO' 
+    },
+    { 
+      id: 2, 
+      image: '', 
+      brand: 'VOID SECTOR', 
+      name: 'Nightshade Cargo V1', 
+      price: 120.00, 
+      badge: '20% DESCUENTO',
+      previousPrice: 150.00 
+    },
   ];
 
   const recommended = [
-    { id: 3, image: '', brand: 'CALLE ZERO', name: 'Graphic Tee', price: 45.00 },
-    { id: 4, image: '', brand: 'CALLE ZERO', name: 'Classic Cap', price: 30.00 },
+    { id: 3, image: '', brand: 'CALLE ZERO', name: 'Void Graphic Tee', price: 45.00 },
+    { id: 4, image: '', brand: 'URBAN ARCHIVE', name: 'Canvas Cargo V2', price: 85.00 },
   ];
-
-  const categories = ['Hoodies', 'Kicks', 'Cargo', 'Camisas', 'Accesorios'];
 
   return (
     <div className="home-page">
-      <Header />
+      <Header onSearchClick={onSearch} />
 
       <main className="home-main-content">
-        {/* BANNER PRINCIPAL (Basado en image_5.png) */}
+        
+        {/* BANNER PRINCIPAL */}
         <section className="hero-banner">
-          {/* Pon la ruta de la imagen en src */}
-          <img src={bannerImg} alt="Archivo de Verano" className="banner-bg" />
+          <img src={heroImg} alt="Banner" className="banner-bg" />
           <div className="banner-overlay">
-            <div className="banner-text">
-              <span className="banner-badge">ENTREGA LIMITADA</span>
-              <h1 className="banner-title">ARCHIVO DE VERANO 26'</h1>
-              <p className="banner-subtitle">DISPONIBLE SOLO POR 48 HORAS</p>
-            </div>
-            <button className="banner-btn">Explorar</button>
+            <span className="banner-badge">ENTREGA LIMITADA</span>
+            <h1 className="banner-title">ARCHIVO DE VERANO 26'</h1>
+            <p className="banner-subtitle">DISPONIBLE SOLO POR 48 HORAS</p>
+            {/* Ahora onExplore ya está definido y no dará error */}
+            <button className="banner-btn" onClick={onExplore}>Explorar</button>
           </div>
         </section>
 
-        {/* HOT DROPS (Basado en image_7.png, scroll horizontal) */}
-        <section className="home-section hot-drops-section">
+        {/* HOT DROPS */}
+        <section className="home-section">
           <div className="section-header">
             <h2 className="section-title">HOT DROPS</h2>
-            <a href="#" className="see-all">Ver Todos</a>
+            <button className="see-all-btn">Ver Todos</button>
           </div>
-          <div className="horizontal-scroll-container">
-            {hotDrops.map(product => (
-              <div key={product.id} className="scroll-item">
-                <ProductCard {...product} />
+          
+          <div className="home-horizontal-scroll">
+            {hotDrops.map(prod => (
+              <div key={prod.id} className="scroll-item-wrapper">
+                <ProductCard {...prod} />
               </div>
             ))}
           </div>
         </section>
 
-        {/* CATEGORÍAS (Chips, basado en image_7.png) */}
-        <section className="home-section categories-section">
-          <div className="category-chips-container">
-            {categories.map(cat => (
-              <button key={cat} className="category-chip">{cat}</button>
-            ))}
-          </div>
-        </section>
-
-        {/* RECOMENDADO (Grid, basado en image_8.png) */}
-        <section className="home-section recommended-section">
+        {/* RECOMENDADO */}
+        <section className="home-section">
           <div className="section-header">
             <h2 className="section-title">RECOMENDADO</h2>
           </div>
-          <div className="products-grid-container">
-            {recommended.map(product => (
-              <ProductCard key={product.id} {...product} />
+          
+          <div className="home-products-grid">
+            {recommended.map(prod => (
+              <ProductCard key={prod.id} {...prod} />
             ))}
           </div>
         </section>
+
       </main>
 
-      {/* BOTÓN FLOTANTE + */}
-      <button className="fab-add-btn">+</button>
+      <button className="fab-btn">+</button>
 
-      {/* NAVBAR FIJO (Basado en image_6.png) */}
       <nav className="bottom-navbar">
-        <button className="nav-link active">
-          <span>🏠</span> Inicio
-        </button>
-        <button className="nav-link">
-          <span>🔍</span> Busqueda
-        </button>
-        <button className="nav-link badge-link">
-          <span>👜</span> Carrito
-          <span className="nav-badge">9</span>
-        </button>
-        <button className="nav-link profile-link">
-          <span>👤</span> Perfil
-        </button>
+        <div className="nav-item active">
+          <span className="nav-icon">🏠</span>
+          <small>Inicio</small>
+        </div>
+        
+        <div className="nav-item" onClick={onSearch}>
+          <span className="nav-icon">🔍</span>
+          <small>Busqueda</small>
+        </div>
+        
+        <div className="nav-item">
+          <div className="badge-wrapper">
+            <span className="nav-icon">👜</span>
+            <span className="nav-badge">9</span>
+          </div>
+          <small>Carrito</small>
+        </div>
+        
+        <div className="nav-item profile-active">
+          <span className="nav-icon">👤</span>
+          <small>Perfil</small>
+        </div>
       </nav>
     </div>
   );

@@ -1,0 +1,206 @@
+/* src/pages/NewArrivals.css */
+
+.new-arrivals-screen {
+  background-color: #000;
+  color: white;
+  min-height: 100vh;
+  padding-bottom: 90px; /* Espacio para la navbar */
+}
+
+/* 1. HEADER (Lanzamientos) */
+.arrivals-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #111;
+}
+
+.arrivals-header h2 {
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.header-icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.cart-icon-wrapper {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background-color: #8a70ff;
+  font-size: 0.6rem;
+  padding: 2px 5px;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+/* 2. BARRA DE FILTROS (edited-image.png) */
+.filter-scroll-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.filter-chip {
+  background: #121212;
+  border: 1px solid #333;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.filter-chip.selectable.active {
+  border-color: #8a70ff;
+  color: #8a70ff;
+  background: rgba(138, 112, 255, 0.05);
+}
+
+.filter-divider {
+  color: #333;
+  font-weight: 300;
+}
+
+.clear-all {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 0.7rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* 3. GRID DE PRODUCTOS */
+.arrivals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 10px 20px;
+}
+
+.arrival-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.arrival-image-container {
+  position: relative;
+  aspect-ratio: 1 / 1.35;
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: #111;
+}
+
+.arrival-img-placeholder {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.arrival-img-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Etiquetas (HOT, NEW, etc) */
+.arrival-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 0.6rem;
+  font-weight: 900;
+  padding: 4px 8px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.arrival-tag.hot { background-color: #8a70ff; color: white; }
+.arrival-tag.new { background-color: white; color: black; }
+
+/* EL BOTÓN "+" FLOTANTE */
+.add-btn-small {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.add-btn-small:active {
+  transform: scale(0.9);
+}
+
+/* Info del Producto */
+.arrival-info {
+  padding: 10px 2px;
+}
+
+.arrival-brand {
+  color: #666;
+  font-size: 0.65rem;
+  font-weight: 800;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.arrival-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin: 4px 0;
+  line-height: 1.2;
+}
+
+.arrival-price-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.current-price {
+  color: #8a70ff;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.old-price {
+  color: #444;
+  text-decoration: line-through;
+  font-size: 0.8rem;
+}
