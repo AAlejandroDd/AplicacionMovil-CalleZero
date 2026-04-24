@@ -1,7 +1,8 @@
 import React from 'react';
 import './NewArrivals.css';
+// Importamos los iconos de Lucide
+import { ChevronLeft, Menu, ShoppingBag, Plus } from 'lucide-react';
 
-// Recibimos onProductClick desde App.js
 const NewArrivals = ({ onBack, onProductClick }) => {
   const products = [
     { 
@@ -11,7 +12,7 @@ const NewArrivals = ({ onBack, onProductClick }) => {
       price: 85, 
       previousPrice: 110, 
       tag: 'HOT', 
-      image: '' // Pon la ruta de tu imagen aquí
+      image: '' 
     },
     { 
       id: 2, 
@@ -40,14 +41,16 @@ const NewArrivals = ({ onBack, onProductClick }) => {
 
   return (
     <div className="new-arrivals-screen">
-      {/* HEADER SEGÚN DISEÑO */}
+      {/* HEADER REFINADO CON LUCIDE */}
       <header className="arrivals-header">
-        <button className="back-btn" onClick={onBack}>‹</button>
+        <button className="back-btn" onClick={onBack}>
+          <ChevronLeft size={24} color="white" />
+        </button>
         <h2>NUEVOS LANZAMIENTOS</h2>
         <div className="header-icons">
-          <span>☰</span>
+          <Menu size={22} color="white" />
           <div className="cart-icon-wrapper">
-            <span>👜</span>
+            <ShoppingBag size={22} color="white" />
             <span className="cart-badge">3</span>
           </div>
         </div>
@@ -67,7 +70,6 @@ const NewArrivals = ({ onBack, onProductClick }) => {
         {products.map(product => (
           <div key={product.id} className="arrival-card">
             <div className="arrival-image-container">
-              {/* Al hacer clic en la imagen también abre el detalle */}
               <div 
                 className="arrival-img-placeholder" 
                 onClick={() => onProductClick(product)}
@@ -81,12 +83,12 @@ const NewArrivals = ({ onBack, onProductClick }) => {
                 </span>
               )}
 
-              {/* BOTÓN + QUE ABRE EL DETALLE */}
+              {/* BOTÓN + CON LUCIDE */}
               <button 
                 className="add-btn-small" 
                 onClick={() => onProductClick(product)}
               >
-                +
+                <Plus size={18} color="white" strokeWidth={3} />
               </button>
             </div>
 
@@ -103,26 +105,6 @@ const NewArrivals = ({ onBack, onProductClick }) => {
           </div>
         ))}
       </div>
-
-      {/* NAVBAR INFERIOR */}
-      <nav className="bottom-navbar">
-        <div className="nav-item" onClick={onBack}>
-          <span className="nav-icon">🏠</span>
-          <small>Inicio</small>
-        </div>
-        <div className="nav-item">
-          <span className="nav-icon">🔍</span>
-          <small>Busqueda</small>
-        </div>
-        <div className="nav-item">
-          <span className="nav-icon">👜</span>
-          <small>Carrito</small>
-        </div>
-        <div className="nav-item">
-          <span className="nav-icon">👤</span>
-          <small>Perfil</small>
-        </div>
-      </nav>
     </div>
   );
 };

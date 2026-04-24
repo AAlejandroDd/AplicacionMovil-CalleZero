@@ -1,103 +1,83 @@
-/* src/components/productCard.css */
-
 .product-card {
-  background-color: #1a1a1a; /* Gris muy oscuro casi negro */
-  border-radius: 18px;
+  background-color: #111111; /* Color base oscuro */
+  border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   width: 100%;
-  transition: transform 0.2s ease;
+  min-height: 280px; /* <--- IMPORTANTE: Le da una altura mínima */
+  flex-shrink: 0;
+  border: 1px solid #1a1a1a;
 }
 
-/* 1. CONTENEDOR DE IMAGEN */
-.product-card-image-wrapper {
+.product-image-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1; /* Esto hace que la foto sea siempre cuadrada */
-  background-color: #252525;
+  height: 180px; /* <--- FIJAMOS la altura de la imagen */
+  background-color: #050505;
+  overflow: hidden;
 }
 
-.product-card-img {
+.product-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ajusta la foto sin deformarla */
+  object-fit: cover; /* <--- ESTO evita que se vea estirada o vacía */
   display: block;
 }
 
-/* Etiqueta flotante (NUEVO, etc) */
-.product-card-badge {
+.product-badge {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  background-color: #8a70ff; /* Morado Calle Zero */
-  color: white;
-  font-size: 0.65rem;
-  font-weight: 800;
-  padding: 4px 10px;
-  border-radius: 6px;
-  text-transform: uppercase;
+  top: 8px;
+  left: 8px;
+  background: #8a70ff;
+  color: #fff;
+  padding: 3px 8px;
+  font-size: 9px;
+  font-weight: 900;
+  border-radius: 4px;
+  z-index: 2;
 }
 
-/* Corazón de favoritos */
-.product-card-wishlist {
+.wishlist-btn {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-  width: 30px;
-  height: 30px;
+  top: 8px;
+  right: 8px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: #fff;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+  z-index: 2;
 }
 
-/* 2. CONTENEDOR DE INFORMACIÓN */
-.product-card-info {
+.product-info {
   padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 4px; /* Separa la marca, el nombre y el precio */
+  justify-content: center;
+  align-items: center; /* Centramos el texto como en tu diseño */
+  text-align: center;
 }
 
-.product-card-brand {
-  color: #888;
-  font-size: 0.7rem;
-  font-weight: 600;
+.product-brand {
+  color: #555;
+  font-size: 9px;
+  font-weight: 800;
   text-transform: uppercase;
-  margin: 0;
-  letter-spacing: 0.5px;
+  margin-bottom: 4px;
 }
 
-.product-card-name {
-  color: white;
-  font-size: 0.9rem;
+.product-name {
+  color: #fff;
+  font-size: 13px;
   font-weight: 700;
-  margin: 0;
+  margin-bottom: 8px;
   line-height: 1.2;
 }
 
-.product-card-price-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 4px;
-}
-
-.product-card-current-price {
-  color: white;
-  font-size: 1rem;
-  font-weight: 800;
-}
-
-.product-card-old-price {
-  color: #555;
-  font-size: 0.8rem;
-  text-decoration: line-through;
-  font-weight: 500;
+.product-price {
+  color: #8a70ff;
+  font-size: 16px;
+  font-weight: 900;
 }

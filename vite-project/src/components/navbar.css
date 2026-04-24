@@ -1,0 +1,51 @@
+.bottom-navbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #000;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px solid #1a1e26;
+  z-index: 100;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-item small {
+  font-size: 10px;
+  margin-top: 4px;
+  font-weight: 700;
+  color: #666; /* Color por defecto */
+}
+
+/* Color cuando está activo */
+.nav-item.active small {
+  color: #8a70ff;
+}
+
+.badge-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-badge {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  background: #8a70ff;
+  color: #fff;
+  font-size: 9px;
+  padding: 1px 4px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  font-weight: 900;
+}

@@ -1,36 +1,37 @@
 import React from 'react';
 import './Header.css';
-// Importa tus iconos correctamente
-import searchIcon from '../assets/icon-search.png';
+import { Search, Bell, ShoppingBag } from 'lucide-react';
+// Asegúrate de que esta ruta sea correcta y la imagen exista
 import logoImg from '../assets/Image.jpg'; 
 
-const Header = ({ onSearchClick }) => {
+const Header = ({ onSearchClick, onCartClick, onProfileClick }) => {
   return (
     <header className="main-header">
-      <div className="header-left">
-        <img src={logoImg} alt="Calle Zero" className="logo-img" />
+      {/* Forzamos el tamaño del contenedor para evitar el desborde */}
+      <div className="header-logo-container" onClick={onProfileClick} style={{ cursor: 'pointer' }}>
+        <img src={logoImg} alt="Calle Zero" className="header-logo-img" />
       </div>
       
       <div className="header-right">
-        {/* IMPORTANTE: El onClick debe llamar a onSearchClick 
-          que es la prop que viene desde Home.jsx
-        */}
-        <button 
-          className="icon-btn search-trigger" 
-          onClick={onSearchClick}
-          type="button"
-        >
-          <img src={searchIcon} alt="Buscar" className="header-icon-img" />
+        {/* BUSCADOR */}
+        <button className="icon-btn search-trigger" onClick={onSearchClick} type="button">
+          <Search size={22} color="white" strokeWidth={2.5} />
         </button>
 
+        {/* NOTIFICACIONES */}
         <button className="icon-btn" type="button">
-          <span className="emoji-icon">🔔</span>
-          <span className="badge">2</span>
+          <div className="icon-wrapper">
+            <Bell size={22} color="white" strokeWidth={2.5} />
+            <span className="badge">2</span>
+          </div>
         </button>
 
-        <button className="icon-btn" type="button">
-          <span className="emoji-icon">👜</span>
-          <span className="badge">3</span>
+        {/* CARRITO */}
+        <button className="icon-btn" type="button" onClick={onCartClick} >
+          <div className="icon-wrapper">
+            <ShoppingBag size={22} color="white" strokeWidth={2.5} />
+            <span className="badge">3</span>
+          </div>
         </button>
       </div>
     </header>

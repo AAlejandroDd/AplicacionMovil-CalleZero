@@ -1,0 +1,245 @@
+/* --- Perfil Estilo Calle Zero Premium --- */
+
+/* Estructura general de la pantalla */
+.profile-screen {
+  background-color: #000;
+  color: #fff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Área de scroll para el contenido */
+.profile-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 90px; /* Espacio para que no choque con la Navbar */
+  scrollbar-width: none; /* Oculta scrollbar en Firefox */
+}
+
+.profile-scroll-area::-webkit-scrollbar {
+  display: none; /* Oculta scrollbar en Chrome/Safari */
+}
+
+/* Contenedor con padding uniforme a los lados */
+.profile-container {
+  padding: 0 20px 20px 20px;
+}
+
+/* --- FIX DE LA FOTO DE PERFIL Y CABECERA --- */
+.user-identity {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrado perfecto */
+  text-align: center;
+  margin-bottom: 25px;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.avatar-wrapper {
+  position: relative;
+  margin-bottom: 15px;
+  width: 110px; /* Tamaño generoso pero contenido */
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 2px solid #8a70ff; /* El morado característico */
+  object-fit: cover; /* ARREGLA QUE LA FOTO SE ESTIRE */
+  display: block;
+}
+
+.status-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: #000;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  z-index: 2;
+  padding: 2px;
+}
+
+/* --- TEXTOS DE IDENTIDAD ARREGLADOS --- */
+.user-name {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin: 0;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: -0.5px;
+}
+
+.user-email {
+  color: #555; /* Gris más sutil */
+  font-size: 0.85rem;
+  margin: 4px 0 10px 0; /* Espaciado uniforme vertical */
+  font-weight: 500;
+}
+
+.member-tag {
+  background: rgba(138, 112, 255, 0.1);
+  color: #8a70ff;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.edit-profile-btn {
+  background: #0a0c10;
+  color: #fff;
+  border: 1px solid #1a1e26;
+  padding: 11px 25px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.edit-profile-btn:active {
+  transform: scale(0.98);
+  background: #111;
+}
+
+/* --- ESTADÍSTICAS (STAT CARDS) REFINADAS --- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background: linear-gradient(180deg, #0a0c10 0%, #050505 100%);
+  padding: 18px 5px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid #1a1e26;
+  transition: transform 0.2s;
+}
+
+.stat-card:active {
+  transform: scale(0.96);
+}
+
+.stat-icon { font-size: 1.3rem; display: block; margin-bottom: 6px; }
+.stat-value { font-size: 1.15rem; font-weight: 900; margin: 0; color: #fff; }
+.stat-label { font-size: 0.6rem; color: #444; font-weight: 800; margin-top: 3px; }
+
+/* --- GRUPOS DE MENÚ PREMIUM --- */
+.menu-group {
+  margin-bottom: 25px;
+}
+
+.group-title {
+  font-size: 0.7rem;
+  color: #333;
+  font-weight: 900;
+  margin: 0 0 12px 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+/* DISEÑO DE TARJETA UNIFICADA Y MODERNA */
+.menu-item {
+  display: flex;
+  align-items: center;
+  background-color: #0a0c10; /* Color oscuro base */
+  padding: 16px 18px;
+  border-radius: 16px;
+  margin-bottom: 10px;
+  border: 1px solid #1a1e26;
+  transition: all 0.2s;
+}
+
+.clickable-order:active {
+  transform: scale(0.98);
+  background: #111;
+}
+
+.menu-icon {
+  font-size: 1.4rem;
+  margin-right: 18px;
+  width: 24px;
+  text-align: center;
+}
+
+/* --- FIX DE TEXTO DE MENÚ --- */
+.menu-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* Alineación vertical correcta */
+  text-align: left;
+}
+
+.menu-text p {
+  margin: 0;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #fff;
+  letter-spacing: -0.2px;
+}
+
+.menu-text small {
+  color: #444; /* Gris sutil */
+  font-size: 0.7rem;
+  margin-top: 3px;
+  font-weight: 600;
+}
+
+.arrow-right {
+  color: #1a1e26; /* Flecha casi invisible */
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* --- BOTÓN CERRAR SESIÓN --- */
+.logout-btn {
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(255, 77, 77, 0.2);
+  color: #ff4d4d;
+  padding: 16px;
+  border-radius: 16px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.logout-btn:active {
+  transform: scale(0.98);
+  background: rgba(255, 77, 77, 0.05);
+}
+
+.logout-icon { font-size: 1.1rem; }
+
+/* --- VERSIÓN DE LA APP --- */
+.app-version {
+  text-align: center;
+  color: #1a1e26;
+  font-size: 0.6rem;
+  font-weight: 800;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  letter-spacing: 1.5px;
+}

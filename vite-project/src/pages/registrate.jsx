@@ -1,11 +1,14 @@
-// src/pages/Register.jsx
 import React from 'react';
+import { ChevronLeft, User, Mail, Lock, Eye, ArrowRight } from 'lucide-react'; // Importación de iconos
 import './registrate.css'; 
+
 const Register = ({ onBack }) => {
   return (
     <div className="register-screen">
       <header className="register-header">
-        <button className="back-btn" onClick={onBack}>←</button>
+        <button className="back-btn" onClick={onBack}>
+          <ChevronLeft size={24} color="white" />
+        </button>
         <h2>REGÍSTRATE</h2>
       </header>
 
@@ -15,11 +18,11 @@ const Register = ({ onBack }) => {
           <p>Obtén acceso exclusivo a lanzamientos y colecciones de streetwear.</p>
         </div>
 
-        <form className="register-form">
+        <form className="register-form" onSubmit={(e) => e.preventDefault()}>
           <div className="input-group">
             <label>NOMBRE COMPLETO</label>
             <div className="input-wrapper">
-              <span className="icon">👤</span>
+              <span className="icon"><User size={20} color="#666" /></span>
               <input type="text" placeholder="Ingresa Tu Nombre" />
             </div>
           </div>
@@ -27,7 +30,7 @@ const Register = ({ onBack }) => {
           <div className="input-group">
             <label>EMAIL ADDRESS</label>
             <div className="input-wrapper">
-              <span className="icon">✉</span>
+              <span className="icon"><Mail size={20} color="#666" /></span>
               <input type="email" placeholder="tu@ejemplo.com" />
             </div>
           </div>
@@ -35,9 +38,9 @@ const Register = ({ onBack }) => {
           <div className="input-group">
             <label>CONTRASEÑA</label>
             <div className="input-wrapper">
-              <span className="icon">🔒</span>
+              <span className="icon"><Lock size={20} color="#666" /></span>
               <input type="password" placeholder="Ingresa Una Contraseña" />
-              <span className="eye-icon">👁</span>
+              <span className="eye-icon"><Eye size={20} color="#666" /></span>
             </div>
             <p className="input-help">Debe tener al menos 8 caracteres con una combinación de letras y números.</p>
           </div>
@@ -45,9 +48,9 @@ const Register = ({ onBack }) => {
           <div className="input-group">
             <label>CONFIRMAR CONTRASEÑA</label>
             <div className="input-wrapper">
-              <span className="icon">🔒</span>
+              <span className="icon"><Lock size={20} color="#666" /></span>
               <input type="password" placeholder="Repite La Contraseña" />
-              <span className="eye-icon">👁</span>
+              <span className="eye-icon"><Eye size={20} color="#666" /></span>
             </div>
           </div>
 
@@ -59,7 +62,7 @@ const Register = ({ onBack }) => {
           </div>
 
           <button type="submit" className="register-btn">
-            Registrar Usuario <span>→</span>
+            Registrar Usuario <ArrowRight size={20} />
           </button>
         </form>
       </main>

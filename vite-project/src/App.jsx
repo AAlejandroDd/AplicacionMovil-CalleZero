@@ -5,6 +5,10 @@ import Home from './pages/Home';
 import Discover from './pages/Discover';
 import NewArrivals from './pages/NewArrivals';
 import ProductDetail from './pages/ProductDetail';
+import Cart from './pages/carrito';
+import Checkout from './pages/compra';
+import Profile from './pages/Profile';
+import OrderHistory from './pages/OrderHistory'; 
 import './App.css';
 
 function App() {
@@ -12,20 +16,29 @@ function App() {
   const [currentPage, setCurrentPage] = useState('login');
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // 2. FUNCIÓN PARA MANEJAR LA APERTURA DE UN PRODUCTO
+  // 2. FUNCIONES DE NAVEGACIÓN GLOBAL
+  const goToHome = () => setCurrentPage('home');
+  const goToCart = () => setCurrentPage('cart');
+  const goToCheckout = () => setCurrentPage('checkout');
+  const goToProfile = () => setCurrentPage('profile');
+  const goToDiscover = () => setCurrentPage('discover');
+  const goToArrivals = () => setCurrentPage('arrivals');
+  const goToOrders = () => setCurrentPage('orders'); // 2. FUNCIÓN PARA PEDIDOS
+  const logout = () => setCurrentPage('login');
+
   const openProductDetail = (product) => {
     setSelectedProduct(product);
     setCurrentPage('detail');
   };
 
-  // 3. RENDERIZADO CONDICIONAL
+  // 3. RENDERIZADO CONDICIONAL DE PÁGINAS
   const renderPage = () => {
     switch (currentPage) {
       case 'login':
         return (
           <Login 
             onNavigate={() => setCurrentPage('register')} 
-            onLogin={() => setCurrentPage('home')} 
+            onLogin={goToHome} 
           />
         );
 
@@ -39,25 +52,28 @@ function App() {
       case 'home':
         return (
           <Home 
-            onSearch={() => setCurrentPage('discover')} 
-            onExplore={() => setCurrentPage('arrivals')}
-            onProductClick={openProductDetail} // Se activa al dar clic al "+"
-            onProfile={() => console.log("Ir a perfil")}
+            onSearch={goToDiscover} 
+            onExplore={goToArrivals}
+            onProductClick={openProductDetail}
+            onCart={goToCart} 
+            onProfile={goToProfile} 
           />
         );
 
       case 'discover':
         return (
           <Discover 
-            onBack={() => setCurrentPage('home')} 
+            onBack={goToHome} 
+            onCart={goToCart} 
           />
         );
 
       case 'arrivals':
         return (
           <NewArrivals 
-            onBack={() => setCurrentPage('home')}
-            onProductClick={openProductDetail} // También desde el catálogo pro
+            onBack={goToHome} 
+            onProductClick={openProductDetail} 
+            onCart={goToCart} 
           />
         );
 
@@ -65,18 +81,58 @@ function App() {
         return (
           <ProductDetail 
             product={selectedProduct} 
-            onBack={() => setCurrentPage('home')} 
+            onBack={goToHome} 
+            onCart={goToCart} 
+          />
+        );
+
+      case 'cart':
+        return (
+          <Cart 
+            onBack={goToHome} 
+            onCheckout={goToCheckout} 
+          />
+        );
+
+      case 'checkout':
+        return (
+          <Checkout 
+            onBack={goToCart} 
+          />
+        );
+
+      case 'profile':
+        return (
+          <Profile 
+            onLogout={logout} 
+            onSearch={goToDiscover} 
+            onHome={goToHome} // CORRECCIÓN: Ahora coincide con el prop esperado
+            onCart={goToCart} 
+            onProfile={goToProfile}
+            onOrders={goToOrders} // 3. PROP PARA ABRIR PEDIDOS
+            onBack={goToHome}
+          />
+        );
+
+      case 'orders': // 4. NUEVO CASO DE RENDERIZADO
+        return (
+          <OrderHistory 
+            onBack={goToProfile} // Vuelve al perfil
+            onHome={goToHome} 
+            onSearch={goToDiscover} 
+            onCart={goToCart} 
+            onProfile={goToProfile}
           />
         );
 
       default:
-        return <Login onLogin={() => setCurrentPage('home')} />;
+        return <Login onLogin={goToHome} />;
     }
   };
 
   return (
     <div className="App">
-      {/* Contenedor móvil con el ancho exacto de tu diseño */}
+      {/* Contenedor con aspecto de app móvil */}
       <div className="mobile-container">
         {renderPage()}
       </div>

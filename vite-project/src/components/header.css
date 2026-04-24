@@ -1,83 +1,44 @@
-/* src/components/Header.css */
 .main-header {
-  height: 60px;
   background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0 15px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid #1a1a1a;
+  align-items: center;
+  border-bottom: 1px solid #1a1e26;
+  height: 60px; /* Altura fija para el header */
+  box-sizing: border-box;
 }
 
-.logo-img {
-  height: 35px; /* Ajusta según tu logo */
-  width: auto;
-}
-
-.logo-placeholder {
-  width: 35px;
-  height: 35px;
-  background-color: #8a70ff;
-  border-radius: 8px;
+/* ESTO ARREGLA EL LOGO ENORME */
+.header-logo-container {
+  height: 40px; /* Altura máxima para el logo */
+  width: 40px;  /* Ancho máximo si es cuadrado */
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-weight: bold;
+}
+
+.header-logo-img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain; /* Asegura que la imagen no se estire */
+  display: block;
 }
 
 .header-right {
   display: flex;
-  gap: 10px;
+  gap: 15px;
+  align-items: center;
 }
 
+/* Estilos de los iconos de Lucide */
 .icon-btn {
   background: none;
   border: none;
-  color: white;
-  font-size: 1.2rem;
   padding: 5px;
-  position: relative;
-  cursor: pointer;
-}
-
-.icon-btn img {
-  width: 20px;
-  height: 20px;
-}
-
-.badge-btn .badge {
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  background-color: #8a70ff;
-  color: white;
-  font-size: 0.6rem;
-  font-weight: bold;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.header-icon-img {
-  width: 20px;   /* Ajusta el tamaño según tu diseño */
-  height: 20px;
-  object-fit: contain;
-  filter: invert(1); /* Si tu icono es negro, esto lo vuelve blanco para el modo oscuro */
-}
-
-.icon-btn {
-  background: none;
-  border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
 }

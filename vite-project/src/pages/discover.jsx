@@ -1,6 +1,7 @@
 // src/pages/Discover.jsx
 import React from 'react';
 import './Discover.css';
+import { Search } from 'lucide-react';
 
 // 1. IMPORTA TUS IMÁGENES DE TENDENCIAS AQUÍ
 // import trendHoodiesImg from '../assets/trend-hoodies.jpg';
@@ -24,7 +25,7 @@ const Discover = ({ onBack }) => {
       {/* BARRA DE BÚSQUEDA */}
       <div className="search-bar-container">
         <div className="search-bar-wrapper">
-          <span className="search-icon">🔍</span>
+          <Search size={22} color="white" strokeWidth={2.5} />
           <input type="text" placeholder="Busca sneakers, hoodies, art..." />
         </div>
       </div>
@@ -43,7 +44,7 @@ const Discover = ({ onBack }) => {
 
       {/* TRENDING NOW (Grid de 2x2) */}
       <section className="discover-section trending-section">
-        <h3>🔥 TRENDING NOW</h3>
+        <h3> TRENDING NOW</h3>
         <div className="trending-grid">
           
           {/* Item 1 */}

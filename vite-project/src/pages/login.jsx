@@ -1,39 +1,38 @@
 import React from 'react';
+import { ChevronLeft, Mail, Lock, Eye, ArrowRight } from 'lucide-react'; // Importación de Lucide
 import './Login.css';
 
 const Login = ({ onNavigate, onLogin }) => {
   
-  // Esta función se ejecuta cuando le das clic al botón de Iniciar Sesión
   const handleSubmit = (e) => {
-    e.preventDefault(); // Evita que la página se recargue
-    
-    // Aquí podrías agregar lógica de credenciales en el futuro.
-    // Por ahora, si el HTML5 valida el correo, te deja pasar al Home.
+    e.preventDefault();
     onLogin();
   };
 
   return (
     <div className="login-screen">
-      {/* Header superior */}
+      {/* Header superior con icono vectorial */}
       <header className="login-header">
-        <button className="back-btn" type="button">←</button>
+        <button className="back-btn" type="button">
+          <ChevronLeft size={24} color="white" />
+        </button>
         <h2>INICIAR SESIÓN</h2>
       </header>
 
       <main className="login-content">
-        {/* Sección del Logo */}
         <div className="logo-section">
           <h1>CALLE <span>ZERO</span></h1>
           <p>Bienvenido al movimiento urbano</p>
         </div>
 
-        {/* Formulario con validación */}
         <form className="login-form" onSubmit={handleSubmit}>
           
           <div className="input-group">
             <label>CORREO ELECTRÓNICO</label>
             <div className="input-wrapper">
-              <span className="icon">✉</span>
+              <span className="icon">
+                <Mail size={20} color="#666" /> 
+              </span>
               <input 
                 type="email" 
                 placeholder="nombre@callezero.com" 
@@ -45,31 +44,34 @@ const Login = ({ onNavigate, onLogin }) => {
           <div className="input-group">
             <label>CONTRASEÑA</label>
             <div className="input-wrapper">
-              <span className="icon">🔒</span>
+              <span className="icon">
+                <Lock size={20} color="#666" />
+              </span>
               <input 
                 type="password" 
                 placeholder="********" 
                 required 
               />
-              <span className="eye-icon">👁</span>
+              <span className="eye-icon">
+                <Eye size={20} color="#666" />
+              </span>
             </div>
             <a href="#" className="forgot-password">¿Olvidaste Tu Contraseña?</a>
           </div>
 
-          {/* El botón de tipo submit activa el handleSubmit del form */}
           <button type="submit" className="login-btn">
-            Iniciar Sesión <span>→</span>
+            Iniciar Sesión <ArrowRight size={20} style={{ marginLeft: '8px' }} />
           </button>
         </form>
 
         <footer className="login-footer">
           <p>
-            No tienes una cuenta? 
+            ¿No tienes una cuenta? 
             <a 
               href="#" 
               onClick={(e) => { 
                 e.preventDefault(); 
-                onNavigate(); // Esta función te manda a Registro
+                onNavigate(); 
               }}
             >
               Regístrate

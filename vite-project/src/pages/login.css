@@ -1,90 +1,82 @@
-.login-screen, .register-screen {
-  padding: 25px; 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; 
-  min-height: 90vh; 
-}
-
-input {
-  font-size: 16px !important; 
-}
-
-.login-btn, .register-btn {
-  width: 100%;
-  height: 55px; 
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-
-
+/* Pantalla principal */
 .login-screen {
-  background-color: #000000;
+  background-color: #000;
   color: white;
   min-height: 100vh;
-  /* 60px arriba igual que en registro, 25px a los lados */
-  padding: 60px 25px 25px 25px; 
+  padding: 20px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
 }
 
+/* Header */
 .login-header {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-bottom: 50px; /* Espacio debajo de "INICIAR SESIÓN" */
+  width: 100%;
+  margin-bottom: 10px;
 }
 
-.logo-section {
-  margin-top: 20px; /* Baja el logo un poco más */
-  margin-bottom: 30px;
+.login-header h2 {
+  font-size: 1rem;
+  letter-spacing: 1px;
 }
 
-.login-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin-bottom: 40px;
-}
-
+/* Botón atrás */
 .back-btn {
   position: absolute;
   left: 0;
   background: none;
   border: none;
   color: white;
-  font-size: 20px;
+  cursor: pointer;
+}
+
+/* 🔥 Contenido centrado REAL */
+.login-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* centra vertical */
+  align-items: center;       /* centra horizontal */
+  transform: translateY(-20px); /* ajuste visual tipo app */
+}
+
+/* Logo */
+.logo-section {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .logo-section h1 {
   font-style: italic;
   font-weight: 800;
   font-size: 2rem;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .logo-section span {
-  color: #8a70ff; /* El morado de tu diseño */
+  color: #8a70ff;
 }
 
 .logo-section p {
   font-size: 0.8rem;
   color: #ccc;
+  margin-top: 5px;
 }
 
+/* Formulario */
 .login-form {
-  margin-top: 40px;
+  width: 100%;
+  max-width: 350px;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
+/* Grupo de inputs */
 .input-group label {
   display: block;
   font-size: 0.7rem;
@@ -92,6 +84,7 @@ input {
   margin-bottom: 8px;
 }
 
+/* Input wrapper */
 .input-wrapper {
   background: #121212;
   border: 1px solid #333;
@@ -101,6 +94,7 @@ input {
   padding: 12px;
 }
 
+/* Input */
 .input-wrapper input {
   background: transparent;
   border: none;
@@ -108,32 +102,53 @@ input {
   flex: 1;
   margin-left: 10px;
   outline: none;
+  font-size: 16px;
 }
 
+/* Iconos */
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+.eye-icon {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Forgot password */
 .forgot-password {
   display: block;
   text-align: right;
   color: #8a70ff;
   font-size: 0.7rem;
-  margin-top: 10px;
+  margin-top: 8px;
   text-decoration: none;
 }
 
+/* Botón */
 .login-btn {
+  width: 100%;
+  height: 55px;
   background-color: #8a70ff;
   color: white;
   border: none;
   border-radius: 12px;
-  padding: 15px;
   font-weight: bold;
   font-size: 1rem;
-  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   cursor: pointer;
+  margin-top: 10px;
 }
 
+/* Footer */
 .login-footer {
+  margin-top: 20px;
   text-align: center;
-  margin-top: 40px;
   font-size: 0.8rem;
 }
 
@@ -141,20 +156,4 @@ input {
   color: #8a70ff;
   text-decoration: none;
   font-weight: bold;
-}
-
-/* Esto aplica para Login y Register */
-.login-screen, .register-screen {
-  background-color: #000;
-  min-height: 100vh;
-  padding: 60px 25px 25px 25px; /* 60px arriba para evitar la cámara del celular */
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box; /* Para que el padding no agrande la pantalla */
-}
-
-.login-header, .register-header {
-  margin-bottom: 20px;
-  /* Si quieres que el título esté más abajo del borde superior */
-  padding-top: 10px; 
 }
